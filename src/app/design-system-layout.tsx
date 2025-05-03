@@ -1,41 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import { Circle, Square } from "lucide-react";
 import Link from "next/link";
-import React from "react"; // Import React
+import React from "react";
+import Header from "@/components/layout/Header"; // Import Header
+import Footer from "@/components/layout/Footer"; // Import Footer
 
-export default function DesignSystemLayout({ children }: { children?: React.ReactNode }) { // Make children optional
+export default function DesignSystemLayout({ children }: { children?: React.ReactNode }) {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <div className={`min-h-screen font-mono ${darkMode ? "dark" : ""}`}>
-      <div className="bg-background text-foreground min-h-screen">
-        {/* Navigation */}
-        <header className="sticky top-0 z-40 w-full border-b-8 border-black bg-primary">
-          <div className="container flex h-20 items-center justify-between">
-            <div className="flex items-center gap-6">
-              <div className="flex items-center">
-                <div className="h-12 w-12 bg-yellow-500 border-4 border-black rotate-12"></div>
-                <div className="h-12 w-12 bg-blue-600 border-4 border-black -ml-6 -rotate-12"></div>
-                <span className="font-black text-2xl tracking-tighter ml-4 text-white">BAUHAUS.BRUTAL</span>
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <button
-                onClick={() => setDarkMode(!darkMode)}
-                className="h-10 w-10 bg-yellow-500 border-4 border-black flex items-center justify-center hover:bg-yellow-400 transition-colors"
-                aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
-              >
-                {darkMode ? <Circle className="h-5 w-5" /> : <Square className="h-5 w-5" />}
-              </button>
-            </div>
-          </div>
-        </header>
+    <div className={`min-h-screen font-mono flex flex-col ${darkMode ? "dark" : ""}`}>
+      <div className="bg-background text-foreground flex flex-col flex-grow">
+        <Header darkMode={darkMode} setDarkMode={setDarkMode} /> {/* Use Header component */}
 
-        <main className="container py-12">
+        <main className="w-4/5 mx-auto py-12 flex-grow"> {/* Set width to 80% and center */}
           <div className="space-y-12">
-            <div className="flex justify-between">
+            <div className="flex justify-center"> {/* Center the nav */}
               <nav className="grid w-full max-w-3xl grid-cols-4 h-16 gap-4">
                 <Link
                   href="/overview"
@@ -66,6 +47,7 @@ export default function DesignSystemLayout({ children }: { children?: React.Reac
             {children}
           </div>
         </main>
+        <Footer /> {/* Use Footer component */}
       </div>
     </div>
   );
