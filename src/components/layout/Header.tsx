@@ -19,6 +19,41 @@ export default function Header({ darkMode, setDarkMode }: HeaderProps) {
             <span className="font-black text-2xl tracking-tighter ml-4 text-white">BAUHAUS.BRUTAL</span>
           </Link>
         </div>
+        {/* Navigation Links */}
+        <nav className="flex-grow flex justify-center">
+          <div className="grid grid-cols-5 gap-4 h-12"> {/* Reduced height to h-12 */}
+            <Link
+              href="/overview"
+              className="bg-yellow-500 text-black border-4 border-black text-sm font-bold px-4 flex items-center justify-center shadow-brutal hover:translate-y-0.5 hover:shadow-none transition-all" // Adjusted padding/text size
+            >
+              OVERVIEW
+            </Link>
+            <Link
+              href="/typography"
+              className="bg-blue-600 text-white border-4 border-black text-sm font-bold px-4 flex items-center justify-center shadow-brutal hover:translate-y-0.5 hover:shadow-none transition-all" // Adjusted padding/text size
+            >
+              TYPOGRAPHY
+            </Link>
+            <Link
+              href="/colors"
+              className="bg-red-600 text-white border-4 border-black text-sm font-bold px-4 flex items-center justify-center shadow-brutal hover:translate-y-0.5 hover:shadow-none transition-all" // Adjusted padding/text size
+            >
+              COLORS
+            </Link>
+            <Link
+              href="/components"
+              className="bg-black text-white border-4 border-black text-sm font-bold px-4 flex items-center justify-center shadow-brutal hover:translate-y-0.5 hover:shadow-none transition-all" // Adjusted padding/text size
+            >
+              COMPONENTS
+            </Link>
+            <Link
+              href="/softphone"
+              className="bg-lime-400 text-black border-4 border-black text-sm font-bold px-4 flex items-center justify-center shadow-brutal hover:translate-y-0.5 hover:shadow-none transition-all" // Adjusted padding/text size
+            >
+              SOFTPHONE
+            </Link>
+          </div>
+        </nav>
         <div className="flex items-center gap-4">
           <button
             onClick={() => setDarkMode(!darkMode)}
